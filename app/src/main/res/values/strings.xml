@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DATN</string>
+    --------
+    <string name="login">Đăng nhập</string>
+    <string name="nameApp">Xe Tốt !</string>
+    <string name="username">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="input_username">Nhập tên đăng nhập</string>
+    <string name="input_password">Nhập mật khẩu</string>
+    <string name="forgot_password">Quên mật khẩu ?</string>
+    <string name="sing_up_now">Đăng ký ngay</string>
+    <string name="no_account">Bạn chưa có tài khoản</string>
+    <string name="signUp">Đăng ký</string>
+    <string name="phone_number">Số điện hoại</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    android:background="@drawable/bg_white_conner16">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textStyle="bold"
+        android:text="Cập nhật tin tức"
+        android:textSize="16dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_top_left_top_right"/>
+    <LinearLayout
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:maxLength="25"
+            android:textColorHint="@color/white"
+            android:hint="Tiêu đề"
+            android:textColor="@color/black"
+            android:id="@+id/edTitleUpdateNews"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="15dp"
+            android:background="@drawable/custom_edit_text_login"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"/>
+        <EditText
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/white"
+            android:hint="Đường dẫn"
+            android:textColor="@color/black"
+            android:id="@+id/edUriUpdateNews"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="15dp"
+            android:background="@drawable/custom_edit_text_login"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnCancelUpdateNews"
+            android:background="@drawable/bg_gray_conner10"
+            android:layout_marginEnd="10dp"
+            android:text="Hủy bỏ"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnUpdateNews"
+            android:background="@drawable/bg_colormain_conner10"
+            android:textSize="14sp"
+            android:text="Sửa"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

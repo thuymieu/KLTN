@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="gst.trainingcourse.datn.ui.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_listProductFragment"
+            app:destination="@id/listProductFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_personalFragment"
+            app:destination="@id/personalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="gst.trainingcourse.datn.ui.login.LoginFragment"
+        android:label="LoginFragment"
+        >
+        <action
+            android:id="@+id/action_loginFragment_to_singUpFragment"
+            app:destination="@id/singUpFragment"
+            app:popUpTo="@id/homeFragment"/>
+        <action
+            android:id="@+id/action_loginFragment_to_personalFragment"
+            app:destination="@id/personalFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singUpFragment"
+        android:name="gst.trainingcourse.datn.ui.login.SingUpFragment"
+        android:label="SingUpFragment" >
+        <action
+            android:id="@+id/action_singUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/homeFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="gst.trainingcourse.datn.ui.cart.CartFragment"
+        android:label="CartFragment" />
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="gst.trainingcourse.datn.ui.content.ContentFragment"
+        android:label="ContentFragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="gst.trainingcourse.datn.ui.favorite.FavoriteFragment"
+        android:label="FavoriteFragment" />
+    <fragment
+        android:id="@+id/detailProductFragment"
+        android:name="gst.trainingcourse.datn.ui.content.DetailProductFragment"
+        android:label="DetailProductFragment" >
+        <argument
+            android:name="product"
+            app:argType="gst.trainingcourse.datn.model.Product"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+    </fragment>
+    <fragment
+        android:id="@+id/listProductFragment"
+        android:name="gst.trainingcourse.datn.ui.content.ListProductFragment"
+        android:label="ListProductFragment" >
+        <argument
+            android:name="category"
+            app:argType="gst.trainingcourse.datn.model.Category"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <action
+            android:id="@+id/action_listProductFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalFragment"
+        android:name="gst.trainingcourse.datn.ui.personal.PersonalFragment"
+        android:label="PersonalFragment" >
+
+    </fragment>
+</navigation>

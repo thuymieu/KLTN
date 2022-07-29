@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "887633318665",
+    "project_id": "datn-b43a7",
+    "storage_bucket": "datn-b43a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887633318665:android:4cd26f0eccb5aa19a4b9d8",
+        "android_client_info": {
+          "package_name": "gst.trainingcourse.datn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887633318665-7465vng47njfgcpn7hcqqvjrmp399p4e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gst.trainingcourse.datn",
+            "certificate_hash": "933a481c8b83450ad8aea4e0cbccea2fcc3b476e"
+          }
+        },
+        {
+          "client_id": "887633318665-lt2vatru7mp7umf1fhcp1hqmmias1lts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_Z7OFY8FAj-d3DMfWrB91lsoVL3LIDzw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887633318665-lt2vatru7mp7umf1fhcp1hqmmias1lts.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_admin"
+    app:startDestination="@id/manageFragment">
+
+    <fragment
+        android:id="@+id/manageFragment"
+        android:name="gst.trainingcourse.datn.admin.ui.ManageFragment"
+        android:label="ManageFragment" >
+        <action
+            android:id="@+id/action_manageFragment_to_manageCategoryFragment"
+            app:destination="@id/manageCategoryFragment" />
+        <action
+            android:id="@+id/action_manageFragment_to_manageNewsFragment"
+            app:destination="@id/manageNewsFragment" />
+        <action
+            android:id="@+id/action_manageFragment_to_manageProductFragment"
+            app:destination="@id/manageProductFragment" />
+        <action
+            android:id="@+id/action_manageFragment_to_statisticalFragment"
+            app:destination="@id/statisticalFragment" />
+        <action
+            android:id="@+id/action_manageFragment_to_manageOrderFragment"
+            app:destination="@id/manageOrderFragment" />
+        <action
+            android:id="@+id/action_manageFragment_to_manageUserFragment"
+            app:destination="@id/manageUserFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/manageProductFragment"
+        android:name="gst.trainingcourse.datn.admin.ui.ManageProductFragment"
+        android:label="ManageProductFragment" />
+    <fragment
+        android:id="@+id/manageCategoryFragment"
+        android:name="gst.trainingcourse.datn.admin.ui.ManageCategoryFragment"
+        android:label="ManageCategoryFragment" />
+    <fragment
+        android:id="@+id/manageNewsFragment"
+        android:name="gst.trainingcourse.datn.admin.ui.ManageNewsFragment"
+        android:label="ManageNewsFragment" />
+    <fragment
+        android:id="@+id/manageOrderFragment"
+        android:name="gst.trainingcourse.datn.admin.ui.ManageOrderFragment"
+        android:label="ManageOrderFragment" >
+        <action
+            android:id="@+id/action_manageOrderFragment_to_manageItemOrderFragment"
+            app:destination="@id/manageItemOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statisticalFragment"
+        android:name="gst.trainingcourse.datn.admin.ui.StatisticalFragment"
+        android:label="StatisticalFragment" />
+    <fragment
+        android:id="@+id/manageItemOrderFragment"
+        android:name="gst.trainingcourse.datn.admin.ui.ManageItemOrderFragment"
+        android:label="ManageItemOrderFragment" >
+        <action
+            android:id="@+id/action_manageItemOrderFragment_to_manageOrderFragment"
+            app:destination="@id/manageOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageUserFragment"
+        android:name="gst.trainingcourse.datn.admin.ui.ManageUserFragment"
+        android:label="ManageUserFragment" />
+</navigation>
