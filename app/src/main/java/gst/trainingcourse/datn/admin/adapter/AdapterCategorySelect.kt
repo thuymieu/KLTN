@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import gst.trainingcourse.datn.R
 import gst.trainingcourse.datn.model.Category
-
 class AdapterCategorySelect(context: Context, resource: Int, objects: List<Category>) :
     ArrayAdapter<Category>(context, resource, objects) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -16,6 +15,7 @@ class AdapterCategorySelect(context: Context, resource: Int, objects: List<Categ
         convertView = LayoutInflater.from(parent.context).inflate(R.layout.item_manage_select_categorry,parent,false)
         val tvSelected = convertView.findViewById<TextView>(R.id.tvSelected)
         val category =getItem(position)
+        val abc = 0;
         if(category != null){
             tvSelected.text = category.category_name
         }
