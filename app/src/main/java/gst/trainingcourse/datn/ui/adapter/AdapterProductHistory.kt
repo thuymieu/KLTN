@@ -26,6 +26,7 @@ class AdapterProductHistory : RecyclerView.Adapter<AdapterProductHistory.ItemVie
             binding.tvNameProduct.text = product.name
             binding.tvDate.text = product.date
             binding.tvPrice.text = decimalFormat.format(product.price?.toInt())
+            binding.tvStatus.text = product.status
         }
     }
     fun setData(listUpdate: List<ItemHistory>, context: Context) {

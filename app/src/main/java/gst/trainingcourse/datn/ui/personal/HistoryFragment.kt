@@ -64,6 +64,7 @@ class HistoryFragment : BaseFragment<FragmentHistoryBinding>(){
                             item.name = z.name
                             item.price = z.price
                             item.date = i.create_at
+                            item.status = i.status
                             listHistory.add(item)
                         }
                     }

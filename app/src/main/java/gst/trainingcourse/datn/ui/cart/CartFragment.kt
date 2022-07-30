@@ -69,7 +69,7 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
                     }
                     .setNegativeButton("Hủy", null)
                     .show()
-                }
+            }
         })
     }
 
@@ -137,7 +137,7 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
         }
         val sdf = SimpleDateFormat("dd/M/yyyy")
         val currentDate = sdf.format(Date())
-        order.status = "Yes"
+        order.status = "Chưa xác nhận"
         order.phone_user = edPhone
         order.address_user = edAddress
         order.user_id = Delegate.mainActivity.user.id

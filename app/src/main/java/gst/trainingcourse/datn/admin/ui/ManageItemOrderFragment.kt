@@ -51,20 +51,21 @@ class ManageItemOrderFragment : BaseFragment<FragmentManageItemOrderBinding>(){
     }
 
     private fun getListItemOrder(list: ArrayList<ItemOrder>) {
-            for (i in list){
-                if (order.id == i.order_id){
-                    for(z in listProduct){
-                        if (z.id == i.product_id){
-                            val item = ItemHistory()
-                            item.image = z.photo
-                            item.name = z.name
-                            item.price = z.price
-                            item.date = order.create_at
-                            listHistory.add(item)
-                        }
+        for (i in list){
+            if (order.id == i.order_id){
+                for(z in listProduct){
+                    if (z.id == i.product_id){
+                        val item = ItemHistory()
+                        item.image = z.photo
+                        item.name = z.name
+                        item.price = z.price
+                        item.date = order.create_at
+                        item.status = order.status
+                        listHistory.add(item)
                     }
                 }
             }
+        }
         setDataProduct(listHistory)
     }
     private fun setDataProduct(list: ArrayList<ItemHistory>) {

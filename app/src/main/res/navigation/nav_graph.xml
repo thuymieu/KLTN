@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_homeFragment_to_personalFragment"
             app:destination="@id/personalFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_itemOrderFragment"
+            app:destination="@id/itemOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -87,7 +90,18 @@
     <fragment
         android:id="@+id/personalFragment"
         android:name="gst.trainingcourse.datn.ui.personal.PersonalFragment"
-        android:label="PersonalFragment" >
-
+        android:label="PersonalFragment" />
+    <fragment
+        android:id="@+id/itemOrderFragment"
+        android:name="gst.trainingcourse.datn.ui.personal.ItemOrderFragment"
+        android:label="ItemOrderFragment" >
+        <argument
+            android:name="order"
+            app:argType="gst.trainingcourse.datn.model.Order"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <action
+            android:id="@+id/action_itemOrderFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

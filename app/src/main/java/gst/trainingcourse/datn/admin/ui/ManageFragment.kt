@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import gst.trainingcourse.datn.Delegate
 import gst.trainingcourse.datn.R
 import gst.trainingcourse.datn.admin.adapter.AdapterCategorySelect
 import gst.trainingcourse.datn.base.BaseFragment
@@ -41,6 +42,9 @@ class ManageFragment:BaseFragment<FragmentManageBinding>() {
         }
         binding?.quanLyNguoiDung?.setOnClickListener {
             findNavController().navigate(R.id.action_manageFragment_to_manageUserFragment)
+        }
+        binding?.logout?.setOnClickListener {
+            Delegate.adminActivity.intentToHomePage()
         }
     }
 }

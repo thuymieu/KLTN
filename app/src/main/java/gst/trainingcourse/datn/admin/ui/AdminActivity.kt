@@ -1,5 +1,6 @@
 package gst.trainingcourse.datn.admin.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -10,6 +11,7 @@ import gst.trainingcourse.datn.databinding.ActivityAdminBinding
 import gst.trainingcourse.datn.databinding.ActivityMainBinding
 import gst.trainingcourse.datn.model.Product
 import gst.trainingcourse.datn.model.User
+import gst.trainingcourse.datn.ui.MainActivity
 
 class AdminActivity : AppCompatActivity() {
     private lateinit var navController: NavController
@@ -24,5 +26,9 @@ class AdminActivity : AppCompatActivity() {
     }
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+    fun intentToHomePage(){
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }

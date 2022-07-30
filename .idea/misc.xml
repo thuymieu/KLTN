@@ -17,6 +17,23 @@
         <entry key="..\:/Users/Admin/Desktop/DATN/DATN/app/src/main/res/layout/fragment_history.xml" value="0.15925925925925927" />
         <entry key="..\:/Users/Admin/Desktop/DATN/DATN/app/src/main/res/layout/fragment_home.xml" value="0.18101851851851852" />
         <entry key="..\:/Users/Admin/Desktop/DATN/DATN/app/src/main/res/layout/item_manage_add_category.xml" value="0.20416666666666666" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/fragment_history.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/fragment_item_order.xml" value="0.2" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/fragment_list_product.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/fragment_manage.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/fragment_manage_news.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/fragment_manage_order.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/fragment_order.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/item_manage_order.xml" value="0.1" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/item_order.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/item_product_history.xml" value="0.20462962962962963" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/item_product_sold.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/layout_add_category.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/layout_add_product.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/layout_dialog_update_user.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/layout_infor_payment.xml" value="0.25" />
+        <entry key="..\:/hh/KLTN/app/src/main/res/layout/layout_update_status_order.xml" value="0.24615384615384617" />
         <entry key="..\:/workPlaceKotlin/DATN/DATN/app/src/main/res/drawable/bg_colormain_conner10.xml" value="0.1335" />
         <entry key="..\:/workPlaceKotlin/DATN/DATN/app/src/main/res/drawable/bg_gray_conner10.xml" value="0.1335" />
         <entry key="..\:/workPlaceKotlin/DATN/DATN/app/src/main/res/drawable/bg_top_left_top_right.xml" value="0.1335" />
@@ -80,7 +97,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -36,8 +36,8 @@ class PersonalFragment : BaseFragment<FragmentPersonalBinding>() {
         binding?.tvHistory?.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction().replace(
                 R.id.fmContainer,
-                HistoryFragment(),
-                HistoryFragment::class.java.simpleName
+                OrderFragment(),
+                OrderFragment::class.java.simpleName
             ).commit()
         }
         binding?.tvLogout?.setOnClickListener {

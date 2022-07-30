@@ -59,13 +59,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chi tiết" />
-            <Button
-                android:background="@drawable/bg_gray_conner10"
-                android:layout_marginStart="10dp"
-                android:id="@+id/btnUpdate"
-                android:text="Sửa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
         </LinearLayout>
     </RelativeLayout>
     <View

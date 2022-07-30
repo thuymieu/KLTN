@@ -1,29 +1,27 @@
 package gst.trainingcourse.datn.admin.ui
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
-import gst.trainingcourse.datn.Delegate
 import gst.trainingcourse.datn.R
 import gst.trainingcourse.datn.admin.adapter.AdapterManageOrder
 import gst.trainingcourse.datn.admin.adapter.IOnClickDetail
 import gst.trainingcourse.datn.base.BaseFragment
 import gst.trainingcourse.datn.databinding.FragmentManageOrderBinding
-import gst.trainingcourse.datn.model.ItemOrder
-import gst.trainingcourse.datn.model.Order
-import gst.trainingcourse.datn.model.Product
-import gst.trainingcourse.datn.model.User
-import gst.trainingcourse.datn.ui.HomeFragmentDirections
-import gst.trainingcourse.datn.ui.login.LoginFragmentDirections
+import gst.trainingcourse.datn.model.*
 import gst.trainingcourse.datn.viewmodel.MainViewModel
+import kotlin.collections.ArrayList
 
 class ManageOrderFragment:BaseFragment<FragmentManageOrderBinding>() {
     private val mainViewModel: MainViewModel by viewModels()
@@ -68,18 +66,21 @@ class ManageOrderFragment:BaseFragment<FragmentManageOrderBinding>() {
                 findNavController().navigate(R.id.action_manageOrderFragment_to_manageItemOrderFragment,bundle)
             }
 
+            //Update
             override fun onClickDelete(p: Any) {
                 val order = p as Order
-                AlertDialog.Builder(Delegate.adminActivity)
-                    .setTitle("Thông báo!")
-                    .setMessage("Bạn muốn xóa ${order.id} khỏi đơn đặt hàng! ")
-                    .setPositiveButton(
-                        "Xóa"
-                    ) { _, _ ->
-                        changeStatusProduct(order)
+                when (order.status) {
+                    "Đã hủy" -> {
+                        Toast.makeText(context,"Đơn hàng đã được hủy",Toast.LENGTH_LONG).show()
                     }
-                    .setNegativeButton("Hủy", null)
-                    .show()
+                    "Đã giao" -> {
+                        Toast.makeText(context,"Đơn hàng đã giao thành công",Toast.LENGTH_LONG).show()
+                    }
+                    else -> {
+                        openDialogUpdate(Gravity.CENTER,order)
+                    }
+                }
+
             }
 
             override fun listSize(i: Int) {
@@ -105,19 +106,17 @@ class ManageOrderFragment:BaseFragment<FragmentManageOrderBinding>() {
         for(i in listItemOrder){
             if (i.order_id == idOrder){
                 for(j in listProduct){
-                    if(j.id == i.product_id){
-                        val p = j
+                    if(j.id == i.product_id) {
                         j.status = "Yes"
                         val myRef = FirebaseDatabase.getInstance().getReference("Products")
-                        myRef.child(p.id.toString()).setValue(p)
+                        myRef.child(j.id.toString()).setValue(j)
                     }
                 }
-                val myRef = FirebaseDatabase.getInstance().getReference("ItemOrder")
-                myRef.child(i.id.toString()).removeValue()
             }
         }
+        order.status = "Đã hủy"
         val myRef = FirebaseDatabase.getInstance().getReference("Order")
-        myRef.child(idOrder.toString()).removeValue { _, _ ->
+        myRef.child(idOrder.toString()).setValue(order) { _, _ ->
             Toast.makeText(
                 context,
                 "Xóa thành công!",
@@ -126,6 +125,69 @@ class ManageOrderFragment:BaseFragment<FragmentManageOrderBinding>() {
         }
     }
 
+    private fun openDialogUpdate(gravity: Int, order: Order) {
+        val dialog = context?.let { Dialog(it) }
+        dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog?.setContentView(R.layout.layout_update_status_order)
+        val window = dialog?.window ?: return
+
+        window.setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
+        window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val windowAttribute = window.attributes
+        windowAttribute.gravity = gravity
+        window.attributes = windowAttribute
+
+        if (Gravity.BOTTOM == gravity) {
+            dialog.setCancelable(true)
+        } else {
+            dialog.setCancelable(false)
+        }
+
+        val btnCancel = dialog.findViewById<Button>(R.id.btnCancelUpdateStatusOrder)
+        val btnUpdateStatus = dialog.findViewById<Button>(R.id.btnUpdateStatusOrder)
+        val btnDelete = dialog.findViewById<Button>(R.id.btnDeleteOrder)
+        val tvOldStatus = dialog.findViewById<TextView>(R.id.tvOldStatus)
+        val tvNewStatus = dialog.findViewById<TextView>(R.id.tvNewStatus)
+
+        tvOldStatus.text = order.status
+        when(order.status){
+            "Chưa xác nhận" -> {
+                tvNewStatus.text = "Đã xác nhận"
+                btnDelete.visibility = View.VISIBLE
+            }
+            "Đã xác nhận" -> {
+                tvNewStatus.text = "Đang giao hàng"
+            }
+            "Đang giao hàng" -> {
+                tvNewStatus.text = "Đã giao"
+            }
+        }
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        btnDelete.setOnClickListener {
+            changeStatusProduct(order)
+        }
+
+        btnUpdateStatus.setOnClickListener {
+            order.status = tvNewStatus.text.toString()
+            val myRef = FirebaseDatabase.getInstance().getReference("Order")
+            myRef.child(order.id.toString()).setValue(order) { _, _ ->
+                Toast.makeText(
+                    context,
+                    "Cập nhật thành công!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
     private fun setDataCategory(listOrder: ArrayList<Order>) {
         binding?.tvAmount?.text = "Có ${listOrder.size} đơn hàng"
         context?.let { adapterOrder.setData(listOrder,listUser, it) }
